@@ -2,7 +2,6 @@ package br.com.logsmvc.conf;
 
 import java.util.Properties;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
 import org.springframework.context.annotation.Bean;
@@ -34,7 +33,7 @@ public class JPAConfiguration {
 		Properties jpaProperties = new Properties();
 		
 		jpaProperties.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
-		jpaProperties.put("hibernate.hbm2ddl.auto","create-drop");
+		jpaProperties.put("hibernate.hbm2ddl.auto","update");
 		jpaProperties.put("hibernate.show_sql","true");
 		jpaProperties.put("hibernate.sql_format","true");
 	    

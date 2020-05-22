@@ -9,7 +9,7 @@ import br.com.logsmvc.controller.HomeController;
 import br.com.logsmvc.dao.PacoteDAO;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = {HomeController.class})
+@ComponentScan(basePackageClasses = {HomeController.class, PacoteDAO.class})
 public class AppWebConfiguration {
 	
 	@Bean
