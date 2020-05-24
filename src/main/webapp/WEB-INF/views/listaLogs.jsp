@@ -8,6 +8,7 @@
 <title>Lista Log</title>
 </head>
 <body>
+ <h3>${sucesso}</h3>
 <table>
 		<thead>
 			<tr>
@@ -22,6 +23,10 @@
 				</th>
 				<th>
 					Data
+				</th>
+				<th>
+				</th>
+				<th>
 				</th>
 			</tr>
 		</thead>
@@ -42,12 +47,22 @@
 							<td>
 								${log.data}
 							</td>
+							<td>
+								<form action="${log.id}" method="GET">
+									<input type="submit" value ="Editar">
+								</form>
+							</td>
+							<td>
+								<form action="remover/${log.id}" method="POST">
+									<input type="submit" value ="Excluir">
+								</form>
+							</td>
 						</tr>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>
 					<tr>
-						<td col="4"> Nenhum Log cadastrado</td>
+						<td col="6"> Nenhum Log cadastrado</td>
 					</tr>
 				</c:otherwise>
 			</c:choose>

@@ -9,6 +9,7 @@
 <title>Listar Pacotes</title>
 </head>
 <body>
+<h3>${sucesso}</h3>
 	<table>
 		<thead>
 			<tr>
@@ -32,6 +33,10 @@
 				</th>
 				<th>
 					Doc. Remetente
+				</th>
+				<th>
+				</th>
+				<th>
 				</th>
 			</tr>
 		</thead>
@@ -60,6 +65,16 @@
 							</td>
 							<td>
 								${pacote.docRemetente}
+							</td>
+							<td>
+								<form action="${pacote.codigo}" method="get">
+									<input type="submit" value="Alterar">
+								</form>
+							</td>
+							<td>
+								<form action="remover/${pacote.codigo}" method="POST">
+									<input type="submit" value="Excluir">
+								</form>
 							</td>
 						</tr>
 					</c:forEach>

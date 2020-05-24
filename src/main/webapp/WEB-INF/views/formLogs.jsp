@@ -11,7 +11,8 @@
 </head>
 <body>
 <h3>${sucesso}</h3>
-	<form action="http://localhost:8080/log/log/form" method="POST" >
+	<form action="${empty log?'':'alterar' }" method="POST" >
+		<input type="hidden" name="id" readonly value="${log.id}">
 		<table>
 			<tr>
 				<td>
@@ -21,7 +22,7 @@
 					<select  name="pacote.codigo">
 						<option value="" >Escolha o pacote</option>
 						<c:forEach items="${pacotes}" var="pacote">
-							<option value="${pacote.codigo}" >${pacote.codigo}</option>
+							<option value="${pacote.codigo}" ${not empty codigoPacote && codigoPacote == pacote.codigo  ? 'selected':'' }>${pacote.codigo} </option>
 						</c:forEach>
 					</select>
 				</td>
@@ -31,7 +32,7 @@
 					Mensagem
 				</td>
 				<td>
-					<input type="text"  name="mensagem"/>
+					<input type="text"  name="mensagem" value="${log.mensagem}" />
 				</td>
 			</tr>
 			<tr>
@@ -39,12 +40,12 @@
 					Data
 				</td>
 				<td>
-					<input type="text"  name="data" placeholder="aaa/mm/dd"/>
+					<input type="text"  name="data" placeholder="aaa/mm/dd" value="${log.data}" />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" value="Enviar"/>
+					<input type="submit" value="${empty log?'Cadastrar': 'Alterar'}"/>
 				</td>
 				<td>
 					<input type="reset" value="limpar"/>

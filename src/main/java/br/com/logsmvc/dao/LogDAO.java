@@ -27,5 +27,19 @@ public class LogDAO {
 		TypedQuery<Log> query = entityManager.createQuery("select l from Log l ", Log.class);
 		return query.getResultList();
 	}
+	
+	public Log obter(Long id){
+		return entityManager.find(Log.class, id);
+	}
+	
+	public Log alterar(Log log){
+		entityManager.merge(log);
+		return log;
+	}
+	
+	public Log remover(Log log){
+		entityManager.remove(log);
+		return log;
+	}
 
 }
