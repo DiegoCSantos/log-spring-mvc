@@ -18,7 +18,7 @@ public class PacoteController {
 	@Autowired
 	PacoteService pacoteService;
 	
-	@RequestMapping(value = "pacote/form", method = RequestMethod.POST )
+	@RequestMapping(value = "/form", method = RequestMethod.POST )
 	public ModelAndView inserir(Pacote pacote, RedirectAttributes redirectAtributes) {
 		
 		pacoteService.inserir(pacote);
@@ -28,7 +28,7 @@ public class PacoteController {
 		return model;
 	}
 
-	@RequestMapping(value = "/form", method = RequestMethod.GET )
+	@RequestMapping(value = "/form", method = RequestMethod.GET , name = "form")
 	public ModelAndView form() {
 		
 		ModelAndView model = new ModelAndView();
@@ -65,7 +65,7 @@ public class PacoteController {
 	@RequestMapping(value = "/remover/{codigo}", method = RequestMethod.POST )
 	public ModelAndView remover(@PathVariable("codigo") String codigo, RedirectAttributes redirectAtributes) {
 		
-		ModelAndView model = new ModelAndView("redirect:lista"); 
+		ModelAndView model = new ModelAndView("redirect:pacote/lista"); 
 		pacoteService.remover(codigo);
 		redirectAtributes.addFlashAttribute("sucesso","Pacote removido com sucesso" );
 		return model;

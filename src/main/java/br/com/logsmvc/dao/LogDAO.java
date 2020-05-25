@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,6 +42,12 @@ public class LogDAO {
 	public Log remover(Log log){
 		entityManager.remove(log);
 		return log;
+	}
+
+	public List<Log> listarPorPacote(String codigo) {
+		TypedQuery<Log> query = entityManager.createQuery("select l from Log l join l.pacote p where p.codigo =:codigo", Log.class);
+		query.setParameter("codigo", codigo);
+		return query.getResultList();
 	}
 
 }

@@ -1,20 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="ISO-8859-1"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Listar Pacotes</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
+ 
+<tags:template titulo="lista de pacotes">
 <h3>${sucesso}</h3>
-	<table>
+	<table class="table">
 		<thead>
 			<tr>
 				<th>
-					Código
+					CÃ³digo
 				</th>
 				<th>
 					Destino
@@ -87,5 +81,4 @@
 			</c:choose>
 		</tbody>
 	</table>
-</body>
-</html>
+</tags:template>

@@ -37,5 +37,9 @@ public class LogService {
 		return logDAO.remover(logDAO.obter(id));
 	}
 
+	public List<Log> listarPorPacote(String codigo) {
+		return logDAO.listarPorPacote(codigo);
+	}
+
 
 }

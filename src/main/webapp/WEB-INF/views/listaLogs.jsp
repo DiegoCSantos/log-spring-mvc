@@ -1,15 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Lista Log</title>
-</head>
-<body>
- <h3>${sucesso}</h3>
-<table>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
+ 
+<tags:template titulo="lista de logs">
+<table class="table">
 		<thead>
 			<tr>
 				<th>
@@ -68,5 +62,4 @@
 			</c:choose>
 		</tbody>
 	</table>
-</body>
-</html>
+</tags:template>
